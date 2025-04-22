@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Investment Average Price Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Investment Average Price Calculator</h2>
+
+  <div id="entries">
+    <div class="entry">
+      <input type="number" placeholder="Quantity" class="quantity">
+      <input type="number" placeholder="Price per Share" class="price">
+    </div>
+  </div>
+
+  <button onclick="addEntry()">Add Another Purchase</button>
+  <button onclick="calculateInvestmentAverage()">Calculate Average Price</button>
+
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
