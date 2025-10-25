@@ -1,144 +1,270 @@
-/* ======================================================
-   ULVOXO - Stock Averaging Calculator (Responsive UI)
-   Author: ULVOXO UI Core Team | Version: 2025
-   ====================================================== */
+/* ============================================================
+   ULVOXO - STOCK AVERAGING CALCULATOR (SMART RESPONSIVE EDITION)
+   AUTHOR: ULVOXO UI CORE TEAM
+   VERSION: 2025.2
+   ------------------------------------------------------------
+   DESIGN GOAL: CLEAN • LIGHT • SCALABLE • DEVICE-OPTIMIZED
+   ============================================================ */
 
-/* ---------- Root Variables for Theme Consistency ---------- */
+
+/* ===============================
+   1️⃣ ROOT VARIABLES (EASY EDIT)
+   =============================== */
 :root {
-  --color-bg: #ffffff;
-  --color-primary: #00196a;
-  --color-secondary: #1a1a1a;
-  --color-accent: #f5f7fa;
-  --color-text: #222;
-  --color-muted: #777;
-  --color-error: #d32f2f;
+  /* ---- COLOR SYSTEM ---- */
+  --clr-bg: #ffffff;
+  --clr-primary: #00196a;
+  --clr-primary-dark: #005ac0;
+  --clr-secondary: #1a1a1a;
+  --clr-accent: #f5f7fa;
+  --clr-text: #222222;
+  --clr-muted: #777777;
+  --clr-highlight: #e8f0ff;
+  --clr-error: #d32f2f;
 
+  /* ---- TYPOGRAPHY ---- */
   --font-main: 'Segoe UI', sans-serif;
+
+  /* ---- SPACING & RADIUS ---- */
   --radius: 10px;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+
+  /* ---- EFFECTS ---- */
   --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
+
+  /* ---- RESPONSIVE BREAKPOINTS ---- */
+  --bp-mobile: 480px;
+  --bp-tablet: 768px;
+  --bp-laptop: 1024px;
+  --bp-desktop: 1440px;
+  --bp-tv: 1920px;
 }
 
-/* ---------- Global Reset and Base ---------- */
+/* ===============================
+   2️⃣ GLOBAL RESET & BASE STYLES
+   =============================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background-color: var(--color-bg);
-  font-family: var(--font-main);
-  color: var(--color-text);
-  padding: 2rem;
-  line-height: 1.6;
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  background-color: var(--clr-bg);
+  font-family: var(--font-main);
+  color: var(--clr-text);
+  padding: var(--space-lg);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ===============================
+   3️⃣ TYPOGRAPHY & HEADINGS
+   =============================== */
 h2 {
-  color: var(--color-primary);
-  font-size: large;
+  color: var(--clr-primary);
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
   text-align: center;
   margin-top: 60px;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-sm);
+  font-weight: 600;
 }
 
-/* ---------- Logo Styling ---------- */
+/* ===============================
+   4️⃣ LOGO STYLING
+   =============================== */
 .logo {
   display: block;
   max-width: 160px;
-  height:auto;
-  margin: 1rem auto 0 auto;
+  height: auto;
+  margin: var(--space-sm) auto 0 auto;
+  user-select: none;
 }
 
-/* ---------- Entry Section ---------- */
+/* ===============================
+   5️⃣ ENTRY SECTION
+   =============================== */
 #entries {
-  max-width: 600px;
-  margin: 0 auto 2rem auto;
-  padding: 1rem;
-  background: var(--color-accent);
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto var(--space-lg) auto;
+  padding: var(--space-md);
+  background: var(--clr-accent);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  display: grid;
+  gap: var(--space-md);
 }
 
+/* USING FLEX ON SMALLER DEVICES, GRID ON WIDER DEVICES */
 .entry {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
   flex-wrap: wrap;
+  gap: var(--space-sm);
 }
 
 .entry input {
   flex: 1 1 45%;
-  padding: 0.75rem;
+  padding: var(--space-sm);
   border: 1px solid #ccc;
   border-radius: var(--radius);
   font-size: 1rem;
+  outline: none;
+  transition: var(--transition);
 }
 
-/* ---------- Buttons ---------- */
+.entry input:focus {
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 0 2px rgba(0, 25, 106, 0.1);
+}
+
+/* ===============================
+   6️⃣ BUTTON STYLES
+   =============================== */
 button {
   display: block;
   width: 90%;
   max-width: 400px;
-  margin: 0.5rem auto;
-  padding: 0.75rem 1rem;
-  background-color: var(--color-primary);
-  color: white;
-  font-weight: bold;
+  margin: var(--space-xs) auto;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--clr-primary);
+  color: #ffffff;
+  font-weight: 600;
   border: none;
   border-radius: var(--radius);
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: var(--transition);
 }
 
-button:hover {
-  background-color: #005ac0;
+button:hover,
+button:focus {
+  background-color: var(--clr-primary-dark);
+  transform: translateY(-4px) scale(1.03);
 }
 
-/* ---------- Result Display ---------- */
+/* ===============================
+   7️⃣ RESULT DISPLAY
+   =============================== */
 #result {
-  max-width: 600px;
-  margin: 2rem auto 0 auto;
-  padding: 1rem;
+  width: 100%;
+  max-width: 650px;
+  margin: var(--space-lg) auto 0 auto;
+  padding: var(--space-sm);
   font-size: 1.1rem;
-  background: #e8f0ff;
-  border-left: 5px solid var(--color-primary);
+  background: var(--clr-highlight);
+  border-left: 5px solid var(--clr-primary);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  word-break: break-word;
 }
 
-/* ---------- Footer ---------- */
+/* ===============================
+   8️⃣ FOOTER STYLING
+   =============================== */
 .site-footer {
-  margin-top: 4rem;
+  margin-top: auto;
   text-align: center;
-  color: var(--color-muted);
+  color: var(--clr-muted);
   font-size: 0.9rem;
+  padding: var(--space-md) 0;
+  width: 100%;
 }
 
-/* ---------- Responsive Layout ---------- */
-@media (max-width: 768px) {
+/* ===============================
+   9️⃣ RESPONSIVE BEHAVIOR
+   =============================== */
+
+/* ---------- MOBILE (≤480PX) ---------- */
+@media (max-width: var(--bp-mobile)) {
+  body {
+    padding: var(--space-sm);
+  }
+
+  #entries {
+    padding: var(--space-sm);
+  }
+
+  .entry {
+    flex-direction: column;
+  }
+
   .entry input {
     flex: 1 1 100%;
   }
 
   button {
     width: 100%;
-  }
-
-  #entries {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    padding: 1rem;
+    font-size: 0.95rem;
   }
 
   h2 {
     font-size: 1.4rem;
   }
+}
+
+/* ---------- TABLET (481PX–768PX) ---------- */
+@media (min-width: 481px) and (max-width: var(--bp-tablet)) {
+  #entries {
+    padding: var(--space-md);
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
 
   button {
-    font-size: 0.95rem;
+    width: 100%;
+  }
+}
+
+/* ---------- LAPTOP (769PX–1024PX) ---------- */
+@media (min-width: 769px) and (max-width: var(--bp-laptop)) {
+  #entries {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .entry {
+    display: flex;
+    gap: var(--space-sm);
+  }
+}
+
+/* ---------- DESKTOP (1025PX–1440PX) ---------- */
+@media (min-width: 1025px) and (max-width: var(--bp-desktop)) {
+  #entries {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- LARGE SCREEN / TV (≥1441PX) ---------- */
+@media (min-width: var(--bp-tv)) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 1.1rem;
+    max-width: 500px;
+  }
+
+  #entries {
+    max-width: 800px;
   }
 }
