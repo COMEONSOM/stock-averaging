@@ -6,7 +6,7 @@
 /* ---------- Root Variables for Theme Consistency ---------- */
 :root {
   --color-bg: #ffffff;
-  --color-primary: #0070f3;
+  --color-primary: #00196a;
   --color-secondary: #1a1a1a;
   --color-accent: #f5f7fa;
   --color-text: #222;
@@ -35,14 +35,17 @@ body {
 
 h2 {
   color: var(--color-primary);
+  font-size: large;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-top: 60px;
+  margin-bottom: 1rem;
 }
 
 /* ---------- Logo Styling ---------- */
 .logo {
   display: block;
   max-width: 160px;
+  height:auto;
   margin: 1rem auto 0 auto;
 }
 
